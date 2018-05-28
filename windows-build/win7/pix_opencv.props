@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="Gem.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <OPENCV_DIR>C:\Users\win7\Bibliothèques\opencv\build</OPENCV_DIR>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(Configuration)\$(ProjectName)\</OutDir>
+    <IntDir>$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetExt>.m_i386</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OPENCV_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(OPENCV_DIR)\x86\vc11\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_calib3d247.lib;opencv_contrib247.lib;opencv_core247.lib;opencv_features2d247.lib;opencv_flann247.lib;opencv_gpu247.lib;opencv_imgproc247.lib;opencv_highgui247.lib;opencv_legacy247.lib;opencv_ml247.lib;opencv_nonfree247.lib;opencv_objdetect247.lib;opencv_ocl247.lib;opencv_photo247.lib;opencv_stitching247.lib;opencv_superres247.lib;opencv_ts247.lib;opencv_video247.lib;opencv_videostab247.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(SolutionDir)\..\..\$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="OPENCV_DIR">
+      <Value>$(OPENCV_DIR)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

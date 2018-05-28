@@ -1,0 +1,23 @@
+#N canvas 704 236 450 275 10;
+#X obj 87 73 pix_opencv;
+#X obj 297 46 gemwin;
+#X obj 197 61 gemhead;
+#X obj 200 89 pix_video, f 12;
+#X msg 366 31 create \, 1;
+#X msg 248 11 destroy;
+#X obj 200 112 pix_rgba;
+#X obj 132 153 pix_texture;
+#X obj 132 176 rectangle 5 4;
+#X msg 322 163 vis \$1;
+#X obj 345 131 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 248 221 cvShowImage ducon;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 6 0 11 0;
+#X connect 7 0 8 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;

@@ -1,0 +1,15 @@
+#N canvas 147 197 1566 537 10;
+#X text 126 15 overview of all available cvlib objects;
+#X obj 30 20 cvlib;
+#X obj 50 40 cvlib;
+#X obj 350 40 cvlib_show_image.cpp;
+#X obj 650 40 cvlib_circle.cpp;
+#X obj 950 40 cvlib_find_contours.cpp;
+#X obj 1250 40 cvlib_draw_contours.cpp;
+#X obj 50 70 cvlib_approx_poly.cpp;
+#X obj 350 70 cvlib_contours_convex_hull.cpp;
+#X obj 650 70 cvlib_contours_features.cpp;
+#X obj 950 70 cvlib_route_contours.cpp;
+#X obj 1250 70 cvlib_sort_contours.cpp;
+#X obj 50 100 cvlib_interpol_contours.cpp;
+#X obj 350 100 cvlib_contours_get_points.cpp;
