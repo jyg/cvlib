@@ -1,0 +1,4 @@
+#N canvas 0 0 450 300 12;
+#X obj 188 224 cvhuCompare;
+#X obj 85 98 cvContoursFeature LogHuMoments;
+#X connect 1 0 0 0;

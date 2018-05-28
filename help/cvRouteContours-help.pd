@@ -1,0 +1,89 @@
+#N canvas 326 56 920 705 12;
+#X declare -lib pix_opencv;
+#X obj 19 10 cnv 15 700 60 empty empty CVLIB:OpenCV_with_Pure_Data
+20 30 0 30 -219146 -66577 0;
+#X text 27 129 1) click here ------------------>;
+#X obj 44 197 gemhead;
+#X obj 43 229 pix_video;
+#X obj 84 284 pix_gray;
+#X obj 91 348 cvFindContours;
+#X text 340 220 1st inlet : cvContours <sid>;
+#X obj 174 670 cvShowImage;
+#X obj 267 162 gemwin;
+#X msg 319 162 destroy;
+#X msg 265 127 dimen 1 1 \, create \, 1;
+#X obj 43 257 t a a;
+#X obj 174 587 cvDrawContours;
+#X obj 174 636 cvDrawContours;
+#X msg 12 511 color 255 0 0 \, thickness 2;
+#X obj 12 476 loadbang;
+#X msg 16 540 color 0 255 0 \, thickness 2;
+#X text 339 236 2nd inlet : routing values;
+#X text 338 259 1st outlet : contours for which correponding value
+in routing vector is first argument;
+#X text 336 337 last outlet : contours for which corresponding value
+in routing vector has no matching argument;
+#X text 338 293 2nd outlet : contours for which correponding value
+in routing vector is 2nd argument;
+#X text 340 353 :;
+#X text 39 79 cvRouteContours : route chained cvSequences according
+to values sequentially applied on right inlet if they match with creation
+arguments;
+#X obj 591 31 cvlib-overview;
+#X obj 165 376 t a a;
+#X text 403 386 The routing vector size is the number of available
+contours;
+#X obj 470 86 cvRouteContours 1;
+#X obj 469 112 cvRouteContours 1 2;
+#X obj 469 140 cvRouteContours 1 2 3;
+#N canvas 595 85 630 317 more_about_routing_vector 0;
+#X msg 31 45 1 1 1 1 1 1 1 1 1 1;
+#X msg 36 73 bang;
+#X msg 31 16 0 0 0 1 1 1 1;
+#X msg 18 -43 1;
+#X msg 19 -15 1 \, 1 \, 1;
+#X text 83 74 reset routing vector;
+#X text 143 9 routes 3 contours to first outlet \, and the 4 following
+to second outlet;
+#X text 181 45 following 10 first contours will be routed to 2nd outlet
+;
+#X restore 532 572 pd more_about_routing_vector;
+#X text 409 449 Then \, FOR EACH CONTOUR we make the test (> 200);
+#X text 410 415 In this example \, [cvContoursFeature Area] gives the
+area FOR EACH CONTOUR.;
+#X text 411 468 and send the result value into right inlet of cvRouteContours
+;
+#X text 413 505 comment;
+#X obj 698 115 declare -lib pix_opencv;
+#X obj 223 422 cvContoursFeatures Area;
+#X obj 87 315 cvAthreshold 55;
+#X floatatom 206 269 5 0 0 0 - - -, f 5;
+#X floatatom 226 354 5 0 0 0 - - -, f 5;
+#X obj 89 398 pix_rgba;
+#X floatatom 369 472 5 0 0 0 - - -, f 5;
+#X obj 344 500 > 200;
+#X obj 266 538 cvRouteContours 1;
+#X connect 2 0 3 0;
+#X connect 3 0 11 0;
+#X connect 4 0 36 0;
+#X connect 5 0 39 0;
+#X connect 5 1 24 0;
+#X connect 5 2 38 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 1 4 0;
+#X connect 12 0 13 0;
+#X connect 13 0 7 0;
+#X connect 14 0 12 0;
+#X connect 15 0 14 0;
+#X connect 15 0 16 0;
+#X connect 16 0 13 0;
+#X connect 24 1 35 0;
+#X connect 35 0 42 0;
+#X connect 35 1 41 0;
+#X connect 36 0 5 0;
+#X connect 37 0 36 2;
+#X connect 39 0 12 0;
+#X connect 40 0 41 1;
+#X connect 41 0 42 1;
+#X connect 42 0 12 1;

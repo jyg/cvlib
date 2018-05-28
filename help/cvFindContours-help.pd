@@ -1,5 +1,6 @@
-#N canvas 165 56 741 622 12;
+#N canvas 864 86 741 622 12;
 #X declare -lib pix_opencv;
+#X declare -lib cvlib;
 #X obj 19 10 cnv 15 700 60 empty empty CVLIB:OpenCV_with_Pure_Data
 20 30 0 30 -219146 -66577 0;
 #X obj 580 470 cvDrawContours;
@@ -9,46 +10,52 @@
 #X msg 401 133 destroy;
 #X text 104 134 click here ->;
 #X obj 53 259 gemhead;
-#X msg 122 254 colorspace grey;
-#X msg 212 131 dimen 1 1 \, create \, 1;
 #X text 265 252 Input : monochannel image;
 #X obj 169 219 loadbang;
 #X text 164 412 cvFindContours outputs all the contours found in the
 image as a cvContours structure;
 #X obj 47 298 pix_video;
-#X obj 29 563 cvShowImage FindContours 320 240;
-#X msg 339 368 draw \$1;
-#X obj 340 346 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
 #X text 34 93 cvFindContours : implementation of opencv cvFindContours
 funnction;
 #X obj 589 28 cvlib-overview;
 #X obj 560 180 declare -lib pix_opencv;
-#X obj 65 449 cvlib_find_contours;
 #X obj 75 361 pix_opencv_athreshold;
 #X obj 84 390 t a a;
 #X floatatom 250 330 5 0 0 0 - - -, f 5;
-#X obj 29 538 cvDrawContours;
 #X obj 45 331 t a a;
 #X obj 16 413 pix_rgba;
-#X floatatom 195 485 5 0 0 1 found_contours - -, f 5;
-#X msg 39 513 int_color 2 222 0 \, out_color 0 0 222 \, thickness 3
-;
+#X msg 318 580 int_color 222 222 0 \, out_color 0 0 222 \, thickness
+6;
+#X msg 51 199 device 1;
+#X msg 212 131 dimen 640 480 \, create \, 1;
+#X obj 29 563 pix_texture;
+#X obj 318 551 loadbang;
+#X floatatom 247 483 5 0 0 0 found_contours - -, f 5;
+#X obj 32 525 cvDrawContours;
+#X msg 45 172 device 0;
+#X obj 29 588 rectangle 5.333 4;
+#X msg 122 254 colorspace rgba;
+#X msg 161 291 colorspace gray;
+#X obj 65 449 cvFindContours;
+#X obj 550 224 declare -lib cvlib;
 #X connect 5 0 4 0;
-#X connect 7 0 13 0;
-#X connect 8 0 13 0;
-#X connect 9 0 4 0;
-#X connect 11 0 8 0;
-#X connect 13 0 25 0;
-#X connect 15 0 20 0;
-#X connect 16 0 15 0;
-#X connect 20 1 24 1;
-#X connect 20 2 27 0;
-#X connect 21 0 22 0;
-#X connect 22 0 20 0;
-#X connect 23 0 21 2;
-#X connect 24 0 14 0;
-#X connect 25 0 26 0;
-#X connect 25 1 21 0;
-#X connect 26 0 24 0;
-#X connect 28 0 24 0;
+#X connect 7 0 11 0;
+#X connect 9 0 30 0;
+#X connect 11 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 31 0;
+#X connect 17 0 15 2;
+#X connect 18 0 19 0;
+#X connect 18 1 15 0;
+#X connect 19 0 26 0;
+#X connect 20 0 26 0;
+#X connect 21 0 11 0;
+#X connect 22 0 4 0;
+#X connect 23 0 28 0;
+#X connect 24 0 20 0;
+#X connect 26 0 23 0;
+#X connect 27 0 11 0;
+#X connect 29 0 11 0;
+#X connect 30 0 11 0;
+#X connect 31 1 26 1;
+#X connect 31 2 25 0;

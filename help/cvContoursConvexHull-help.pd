@@ -1,0 +1,54 @@
+#N canvas 283 56 741 622 12;
+#X declare -lib pix_opencv;
+#X declare -lib cvlib;
+#X obj 385 157 gemwin;
+#X msg 459 120 destroy;
+#X obj 19 10 cnv 15 700 60 empty empty CVLIB:OpenCV_with_Pure_Data
+20 30 0 30 -219146 -66577 0;
+#X text 36 123 1) click here ------------------>;
+#X text 38 156 2) click here --->;
+#X obj 171 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 41 504 cvDrawContours;
+#X text 379 192 inlet 1 : cvContours sequence (cvSeq);
+#X obj 94 325 cvFindContours;
+#X obj 39 541 cvShowImage;
+#X obj 81 191 gemhead;
+#X obj 78 216 pix_video;
+#X msg 280 124 dimen 1 1 \, create \, 1;
+#X obj 88 263 pix_gray;
+#X obj 24 236 t a a;
+#X floatatom 189 372 5 0 0 0 - - -, f 5;
+#X text 34 81 cvContoursConvexHull : implementation of cvConvexHull
+function;
+#X obj 163 407 cvContoursConvexHull;
+#X obj 48 398 cvDrawContours;
+#X text 380 247 outlet 1 : cvContours convex contours sequence (cvSeq)
+;
+#X text 354 365 By default \, cvContoursConvexHull reads the input
+cvSeq horizontally (contours->h_next) and outputs the convex contours
+as a cvSeq of contours;
+#X msg 213 237 133;
+#X msg 177 458 color 255 0 0 \, thickness 3;
+#X msg 215 336 color 0 255 0 \, thickness 2;
+#X text 232 541 BUG : La séquence de points d'un contour est inversée
+avec convexhull.;
+#X obj 587 127 declare -lib pix_opencv;
+#X obj 106 297 pix_opencv_athreshold;
+#X obj 587 147 declare -lib cvlib;
+#X connect 1 0 0 0;
+#X connect 6 0 9 0;
+#X connect 8 1 17 0;
+#X connect 8 1 18 1;
+#X connect 10 0 11 0;
+#X connect 11 0 14 0;
+#X connect 12 0 0 0;
+#X connect 13 0 26 0;
+#X connect 14 0 18 0;
+#X connect 14 1 13 0;
+#X connect 17 0 6 1;
+#X connect 18 0 6 0;
+#X connect 21 0 26 2;
+#X connect 22 0 6 0;
+#X connect 23 0 18 0;
+#X connect 26 0 8 0;

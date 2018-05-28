@@ -1,4 +1,5 @@
 #N canvas 205 343 768 541 12;
+#X declare -lib cvlib;
 #X obj 204 153 gemwin;
 #X msg 391 123 destroy;
 #X obj 19 3 cnv 15 700 60 empty empty CVLIB:OpenCV_with_Pure_Data 20
@@ -26,15 +27,16 @@
 #X obj 35 358 pix_rgba;
 #X msg 202 121 dimen 1 1 \, create \, 1;
 #X obj 193 414 cvDrawCircle;
-#X obj 195 443 cvShowImage cvDrawCircle 320 240;
 #X text 18 75 cvDrawCircle : circle drawing function (implementation
 of cvCircle function);
-#X obj 588 22 cvlib-overview;
+#X obj 588 15 cvlib-overview;
 #X obj 340 297 f;
 #X obj 354 225 bng 15 250 50 0 empty empty new_point 17 7 0 10 -262144
 -1 -1;
 #X obj 627 408 cvDrawCircles;
 #X text 392 409 cvDrawCircle is obsolete \, use ->;
+#X obj 195 443 cvShowImage cvDrawCircle 320 240;
+#X obj 588 37 declare -lib cvlib;
 #X connect 1 0 0 0;
 #X connect 4 0 23 0;
 #X connect 5 0 4 0;
@@ -42,7 +44,7 @@ of cvCircle function);
 #X connect 7 0 4 0;
 #X connect 8 0 25 0;
 #X connect 9 0 25 0;
-#X connect 10 0 29 1;
+#X connect 10 0 28 1;
 #X connect 11 0 25 2;
 #X connect 12 0 25 3;
 #X connect 14 0 8 0;
@@ -51,6 +53,6 @@ of cvCircle function);
 #X connect 19 0 9 0;
 #X connect 23 0 25 0;
 #X connect 24 0 0 0;
-#X connect 25 0 26 0;
-#X connect 29 0 25 1;
-#X connect 30 0 29 0;
+#X connect 25 0 32 0;
+#X connect 28 0 25 1;
+#X connect 29 0 28 0;

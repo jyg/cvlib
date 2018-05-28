@@ -1,5 +1,5 @@
 #N canvas 453 118 665 539 12;
-#X declare -lib pix_opencv;
+#X declare -lib cvlib;
 #X obj 231 194 gemwin;
 #X text 507 409 window with title;
 #X text 510 462 sized window;
@@ -14,7 +14,7 @@
 #X obj 240 460 cvShowImage 320 240;
 #X obj 244 407 cvShowImage My_Window;
 #X obj 244 381 cvShowImage;
-#X obj 355 266 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 355 266 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 351 291 vis \$1;
 #X text 411 292 show / hide the window;
@@ -38,9 +38,9 @@
 be created....;
 #X obj 176 301 cvShowImage my_cam;
 #X obj 562 24 cvlib-overview;
-#X obj 520 103 declare -lib pix_opencv;
 #X text 21 80 cvShowImage : draw an image (pix_data) in a window;
 #X text 15 330 supported formats : rgba \, gray;
+#X obj 453 103 declare -lib cvlib;
 #X connect 6 0 0 0;
 #X connect 13 0 14 0;
 #X connect 14 0 21 0;

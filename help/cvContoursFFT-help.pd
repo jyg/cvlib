@@ -1,0 +1,11 @@
+#N canvas 398 61 863 661 12;
+#X obj 45 176 cvContoursFFT 32 6;
+#X text 246 187 le contour est d'abord resamplé;
+#X text 244 211 (le 1er argument spécifie le nb de points pour ce resampling)
+;
+#X text 254 268 puis les n premiers points de la fft sont récupérés
+en sortie;
+#X text 238 355 (le 2ème argument indique le nombre de points à sortir)
+;
+#X text 220 97 renvoie les magnitudes des n premiers points de la fft
+d'un contour;

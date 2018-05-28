@@ -1,8 +1,12 @@
-#N canvas 884 235 741 622 12;
+#N canvas 283 23 741 622 12;
 #X obj 385 157 gemwin;
 #X msg 459 120 destroy;
 #X obj 19 10 cnv 15 700 60 empty empty CVLIB:OpenCV_with_Pure_Data
 20 30 0 30 -219146 -66577 0;
+#X text 36 123 1) click here ------------------>;
+#X text 38 156 2) click here --->;
+#X obj 171 158 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X obj 90 476 cvDrawContours;
 #X obj 94 325 cvFindContours;
 #X obj 75 182 gemhead;
@@ -13,7 +17,8 @@
 #X obj 89 290 cvCanny;
 #X text 36 82 cvDrawContours : implementation of cvDrawcontours function
 ;
-#X text 337 240 inlet 2 : contours;
+#X text 335 217 inlet 1 : image;
+#X text 331 240 inlet 2 : contours;
 #X text 337 274 outlet 1 : image;
 #X msg 285 444 int_color 255 0 0;
 #X msg 276 480 ext_color 0 0 255;
@@ -28,20 +33,19 @@
 #X text 435 382 -1 : draw fill;
 #X msg 296 380 thickness -1;
 #X obj 581 31 cvlib-overview;
-#X text 336 211 inlet 1 : image \, format messages;
 #X connect 1 0 0 0;
-#X connect 3 0 23 0;
-#X connect 4 1 3 1;
-#X connect 5 0 6 0;
-#X connect 6 0 9 0;
-#X connect 7 0 0 0;
-#X connect 8 0 10 0;
-#X connect 9 0 3 0;
-#X connect 9 1 8 0;
-#X connect 10 0 4 0;
-#X connect 14 0 3 0;
-#X connect 15 0 3 0;
-#X connect 16 0 3 0;
-#X connect 17 0 3 0;
-#X connect 18 0 3 0;
-#X connect 25 0 3 0;
+#X connect 6 0 27 0;
+#X connect 7 1 6 1;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 10 0 0 0;
+#X connect 11 0 13 0;
+#X connect 12 0 6 0;
+#X connect 12 1 11 0;
+#X connect 13 0 7 0;
+#X connect 18 0 6 0;
+#X connect 19 0 6 0;
+#X connect 20 0 6 0;
+#X connect 21 0 6 0;
+#X connect 22 0 6 0;
+#X connect 29 0 6 0;

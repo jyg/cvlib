@@ -1,0 +1,70 @@
+#N canvas 618 56 920 705 12;
+#X declare -lib pix_opencv;
+#X obj 19 10 cnv 15 700 60 empty empty CVLIB:OpenCV_with_Pure_Data
+20 30 0 30 -219146 -66577 0;
+#X obj 44 197 gemhead;
+#X obj 43 229 pix_video;
+#X obj 84 284 pix_gray;
+#X obj 86 337 cvFindContours;
+#X text 340 220 1st inlet : cvContours <sid>;
+#X obj 163 249 gemwin;
+#X msg 215 249 destroy;
+#X obj 43 257 t a a;
+#X obj 174 587 cvDrawContours;
+#X msg 12 511 color 255 0 0 \, thickness 2;
+#X obj 12 476 loadbang;
+#X text 339 236 2nd inlet : routing values;
+#X obj 591 31 cvlib-overview;
+#X text 410 415 In this example \, [cvContoursFeature Area] gives the
+area FOR EACH CONTOUR.;
+#X text 36 78 cvSortContours : sorts chained cvSequences according
+to values sequentially applied on right inlet;
+#X obj 471 109 cvSortContours;
+#X obj 468 140 cvSortContours 5;
+#X text 38 115 Sort is applied from biggest to lowest values;
+#X text 39 144 optional creation argument limits nb of sorted contours
+;
+#X text 338 259 outlet : sorted contours;
+#X text 347 378 The sorting vector size is the number of available
+contours;
+#N canvas 595 85 630 317 more_about_sorting_vector 0;
+#X msg 31 45 1 1 1 1 1 1 1 1 1 1;
+#X msg 36 73 bang;
+#X msg 31 16 0 0 0 1 1 1 1;
+#X msg 18 -43 1;
+#X msg 19 -15 1 \, 1 \, 1;
+#X text 83 74 reset routing vector;
+#X restore 529 572 pd more_about_sorting_vector;
+#X text 210 550 Draw only biggest contour;
+#X text 411 468 Then \, we send the result value into right inlet of
+cvSortContours;
+#X text 412 505 When all's done \, cvSortContours receives cvContours
+message on left inlet and sorts the contour sequence. Afterwhat \,
+the sorting vector is cleared for next time.;
+#X obj 673 129 declare -lib pix_opencv;
+#X msg 161 214 reset \, dimen 640 480 \, create \, 1;
+#X obj 174 612 pix_texture;
+#X obj 174 637 rectangle 5 4;
+#X obj 83 311 pix_opencv_athreshold;
+#X obj 172 415 cvContoursFeatures Area;
+#X obj 228 481 cvSortContours 10;
+#X msg 286 323 500;
+#X obj 297 291 loadbang;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 30 0;
+#X connect 4 1 31 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 1 3 0;
+#X connect 9 0 28 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 27 0 6 0;
+#X connect 28 0 29 0;
+#X connect 30 0 4 0;
+#X connect 31 0 32 0;
+#X connect 31 1 32 1;
+#X connect 32 0 9 1;
+#X connect 33 0 30 2;
+#X connect 34 0 33 0;
