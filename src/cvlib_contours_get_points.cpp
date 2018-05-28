@@ -31,7 +31,7 @@ cvlib_contours_get_points::cvlib_contours_get_points(int argc,t_atom *argv)
     {
         
 
-	//first inlet for cvContour already created by CPPExtern class
+	//first inlet for cvContour and other methods  already created by CPPExtern class
 
 		// second inlet for setting max number of points 
 		//inlet_new(this->x_obj, &this->x_obj->ob_pd,gensym("float"), gensym("max_size"));

@@ -13,3 +13,4 @@
 #X obj 1250 70 cvlib_sort_contours.cpp;
 #X obj 50 100 cvlib_interpol_contours.cpp;
 #X obj 350 100 cvlib_contours_get_points.cpp;
+#X obj 650 100 cvlib_contours_convexity_defects.cpp;

@@ -16,22 +16,24 @@ cvlib_la_include_HEADERS = 	cvlib_show_image.h \
 					cvlib_route_contours.h \
 					cvlib_sort_contours.h \
 					cvlib_interpol_contours.h \
-					cvlib_contours_get_points.h
+					cvlib_contours_get_points.h \
+					cvlib_contours_convexity_defects.h
 
 OVERVIEW=../cvlib-help.pd
 
 cvlib_la_SOURCES = cvlib.cc \
-				  cvlib_show_image.cpp \
-				  cvlib_circle.cpp \
-				  cvlib_find_contours.cpp \
-				  cvlib_draw_contours.cpp \
-				  cvlib_approx_poly.cpp \
-				  cvlib_contours_convex_hull.cpp \
-				  cvlib_contours_features.cpp \
-				  cvlib_route_contours.cpp \
-				  cvlib_sort_contours.cpp \
-				  cvlib_interpol_contours.cpp \
-					cvlib_contours_get_points.cpp
+			cvlib_show_image.cpp \
+			cvlib_circle.cpp \
+			cvlib_find_contours.cpp \
+			cvlib_draw_contours.cpp \
+			cvlib_approx_poly.cpp \
+			cvlib_contours_convex_hull.cpp \
+			cvlib_contours_features.cpp \
+			cvlib_route_contours.cpp \
+			cvlib_sort_contours.cpp \
+			cvlib_interpol_contours.cpp \
+			cvlib_contours_get_points.cpp \
+			cvlib_contours_convexity_defects.cpp
 
 #~ Override cvlib.la target to add ".WAIT" but it doesn't seems to work...
 #~cvlib.la: .WAIT $(cvlib_la_OBJECTS) $(cvlib_la_DEPENDENCIES) $(EXTRA_cvlib_la_DEPENDENCIES) 
