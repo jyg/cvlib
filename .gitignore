@@ -38,7 +38,7 @@ pix_opencv-meta.pd
 ###################
 *.l_ia64
 *.l_ia86
-*.pd_linux
+#*.pd_linux
 *.pd_darwin
 *.com
 *.class
