@@ -380,7 +380,7 @@ void cvlib_contours_convexity_defects :: obj_setupCallback(t_class *classPtr)
 
 
 	class_addmethod(classPtr, (t_method)&cvlib_contours_convexity_defects::set_MaxConvexDefectsCallback,
-  		  gensym("max_defects"), A_DEFFLOAT, A_NULL);	
+  		  gensym("maxpoints"), A_DEFFLOAT, A_NULL);	
 
 }
 

@@ -245,7 +245,7 @@ void cvlib_contours_get_points :: obj_setupCallback(t_class *classPtr)
 
 
 	class_addmethod(classPtr, (t_method)&cvlib_contours_get_points::setNbPointsCallback,
-  		  gensym("size"), A_FLOAT, A_NULL);	
+  		  gensym("maxpoints"), A_FLOAT, A_NULL);	
 
 	class_addmethod(classPtr, (t_method)&cvlib_contours_get_points::setArraysMessCallback,
 	  		  gensym("settab"), A_DEFSYMBOL, A_DEFSYMBOL, A_NULL);	

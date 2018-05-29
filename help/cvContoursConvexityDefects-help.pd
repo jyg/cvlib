@@ -1,4 +1,4 @@
-#N canvas 762 82 973 632 12;
+#N canvas 612 260 973 632 12;
 #X declare -lib pix_opencv;
 #X declare -lib cvlib;
 #X obj 10 213 cnv 15 430 380 empty empty empty 20 12 0 14 -228856 -66577
@@ -42,7 +42,7 @@
 #X connect 9 2 8 0;
 #X connect 10 0 6 0;
 #X restore 724 563 pd gemwin;
-#X msg 724 543 destroy;
+#X msg 724 543 create;
 #X text 722 523 Create window and render;
 #X obj 658 326 cnv 15 250 130 empty empty empty 20 12 0 14 -4034 -66577
 0;
@@ -95,7 +95,6 @@
 #X obj 555 254 r biggest_contour;
 #X obj 8 0 cnv 15 240 60 empty empty cvContoursConvexityDefects 2 30
 0 15 -4034 -66577 0;
-#X obj 687 348 cvContoursConvexityDefects 100;
 #X text 723 435 bangs when all convDefct. points of current contour
 have been given, f 31;
 #N canvas 1 56 541 319 draw_individual_Defect_points 0;
@@ -124,10 +123,10 @@ have been given, f 31;
 #X connect 10 0 4 0;
 #X restore 462 520 pd draw_individual_Defect_points;
 #X obj 758 274 r \$0-params;
-#X obj 44 471 s \$0-params;
+#X obj 27 560 s \$0-params;
 #X msg 71 312 margin \$1;
 #X obj 112 276 hsl 128 15 0 127 0 1 empty empty empty -2 -8 0 10 -262144
--1 -1 1500 1;
+-1 -1 7000 1;
 #X floatatom 71 272 5 0 0 0 - - -, f 5;
 #X obj 100 381 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -139,9 +138,15 @@ have been given, f 31;
 #X text 207 467 this method is a bit more permissive;
 #X msg 78 417 method \$1;
 #X text 128 378 convexity searching method (default= 0);
-#X text 19 167 Arguments: ?????;
 #X obj 772 6 declare -lib pix_opencv;
 #X obj 772 31 declare -lib cvlib;
+#X obj 744 143 cvContoursConvexityDefects;
+#X obj 687 348 cvlib_contours_convexity_defects 5;
+#X floatatom 82 486 5 1 200 0 - - -, f 5;
+#X text 213 525 max nb of defects to output;
+#X text 19 167 Arguments: max nb of defect to output (default 200)
+;
+#X msg 81 527 maxpoints \$1;
 #X connect 5 0 6 0;
 #X connect 6 0 5 0;
 #X connect 10 0 19 0;
@@ -151,7 +156,7 @@ have been given, f 31;
 #X connect 13 0 20 0;
 #X connect 16 0 21 0;
 #X connect 16 1 34 0;
-#X connect 17 0 41 0;
+#X connect 17 0 40 0;
 #X connect 18 0 19 0;
 #X connect 19 0 20 0;
 #X connect 20 0 16 0;
@@ -159,21 +164,23 @@ have been given, f 31;
 #X connect 22 0 17 0;
 #X connect 23 0 22 0;
 #X connect 24 0 17 1;
-#X connect 24 1 39 0;
+#X connect 24 1 58 0;
 #X connect 25 0 20 1;
 #X connect 26 0 27 0;
-#X connect 26 1 41 1;
+#X connect 26 1 40 1;
 #X connect 28 0 24 0;
 #X connect 29 0 30 0;
 #X connect 34 0 36 0;
 #X connect 34 1 35 0;
 #X connect 37 0 28 0;
-#X connect 39 0 26 0;
-#X connect 39 1 32 0;
-#X connect 41 0 29 0;
-#X connect 42 0 39 0;
+#X connect 40 0 29 0;
+#X connect 41 0 58 0;
+#X connect 43 0 42 0;
 #X connect 44 0 43 0;
-#X connect 45 0 44 0;
-#X connect 45 0 46 0;
-#X connect 47 0 54 0;
-#X connect 54 0 43 0;
+#X connect 44 0 45 0;
+#X connect 46 0 53 0;
+#X connect 53 0 42 0;
+#X connect 58 0 26 0;
+#X connect 58 1 32 0;
+#X connect 59 0 62 0;
+#X connect 62 0 42 0;
